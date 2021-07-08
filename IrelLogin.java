@@ -19,7 +19,7 @@ public class IrelLogin {
 		IrelLogin.policies();
 		IrelLogin.policies1();
 		IrelLogin.caseStudies();
-//		IrelLogin.Manuals();
+		IrelLogin.Manuals();
           
 		
 	}
@@ -498,32 +498,180 @@ public class IrelLogin {
     				    //view button 
     					driver.findElement(By.xpath("(//a[text()='View'][1])")).click();
     					
-    					//co radio button
-    					driver.findElement(By.xpath("//input[@type='radio' and @id='CO']")).click();
+    					//common radio button
+    					driver.findElement(By.xpath("//input[@id='COMMON']")).click();
+    					
+    					Thread.sleep(1000);
+    					
     					//select drop down value
-    					WebElement manuals1= driver.findElement(By.xpath("//option[@value='Manuals']"));
+    					WebElement type = driver.findElement(By.xpath("//option[text()='Manuals']"));
     					Thread.sleep(5000);
-    					manuals1.click();
+    					type.click();
+    					
     				    //view button 
+    					String parentWindowHandle = driver.getWindowHandle();
+     					driver.findElement(By.xpath("(//a[text()='View'][1])")).click();
+     					
+     					driver.switchTo().window(parentWindowHandle);
+     					Set<String> allWindows=driver.getWindowHandles();
+     					int count=allWindows.size();
+     					System.out.println("Total window" +count);
+     					
+     					for(String child:allWindows)
+     					{
+     						if(!parentWindowHandle.equalsIgnoreCase(child))
+     						{
+     							driver.switchTo().window(child);
+     							
+     							Thread.sleep(5000);
+     							driver.close();
+     						}
+     					}
+     					driver.switchTo().window(parentWindowHandle);
+     					System.out.println("Parent window title is" +driver.getTitle());
+     					
+    					
+    					//co radio button
+    					driver.findElement(By.xpath("//input[@id='CO']")).click();
+    					//select drop down value
+    					WebElement type1 = driver.findElement(By.xpath("//option[text()='Manuals']"));
+    					Thread.sleep(5000);
+    					type1.click();
+    					
+    				    //view button 
+    					String parentWindowHandle1 = driver.getWindowHandle();
     					driver.findElement(By.xpath("(//a[text()='View'][1])")).click();
     					
-    					Thread.sleep(5000);
+    					driver.switchTo().window(parentWindowHandle1);
+     					Set<String> allWindows1=driver.getWindowHandles();
+     					int count1=allWindows.size();
+     					System.out.println("Total window" +count1);
+     					
+     					for(String child:allWindows1)
+     					{
+     						if(!parentWindowHandle1.equalsIgnoreCase(child))
+     						{
+     							driver.switchTo().window(child);
+     							
+     							Thread.sleep(5000);
+     							driver.close();
+     						}
+     					}
+     					driver.switchTo().window(parentWindowHandle1);
+     					System.out.println("Parent window title is" +driver.getTitle());
     					
     					// MK radio button
-//    					driver.findElement(By.xpath("//input[@type='radio' and @id='MK']")).click();
-//    					driver.findElement(By.xpath("//select[@id='partyContentTypeId']")).click();
+    					driver.findElement(By.xpath("//input[@id='MK']")).click();
+    					WebElement type2 = driver.findElement(By.xpath("//option[text()='Manuals']"));
+    					Thread.sleep(5000);
+    					type2.click();
     					
+    					//view button 
+    					String parentWindowHandle2 = driver.getWindowHandle();
+    					driver.findElement(By.xpath("(//a[text()='View'][1])")).click();
+    					
+    					driver.switchTo().window(parentWindowHandle2);
+     					Set<String> allWindows2=driver.getWindowHandles();
+     					int count2=allWindows.size();
+     					System.out.println("Total window" +count2);
+     					
+     					for(String child:allWindows2)
+     					{
+     						if(!parentWindowHandle2.equalsIgnoreCase(child))
+     						{
+     							driver.switchTo().window(child);
+     							
+     							Thread.sleep(5000);
+     							driver.close();
+     						}
+     					}
+     					driver.switchTo().window(parentWindowHandle2);
+     					System.out.println("Parent window title is" +driver.getTitle());
+     					
     					//Red radio button
-//    					driver.findElement(By.xpath("//input[@type='radio' and @id='RED']")).click();
-//    					driver.findElement(By.xpath("//select[@id='partyContentTypeId']")).click();
+    					driver.findElement(By.xpath("//input[@id='RED']")).click();
+    					WebElement type3 = driver.findElement(By.xpath("//option[text()='Manuals1']"));
+    					Thread.sleep(5000);
+    					type3.click();
+    					
+    					//view button 
+    					String parentWindowHandle3 = driver.getWindowHandle();
+    					driver.findElement(By.xpath("(//a[text()='View'][1])")).click();
+    					
+    					driver.switchTo().window(parentWindowHandle3);
+     					Set<String> allWindows3=driver.getWindowHandles();
+     					int count3=allWindows.size();
+     					System.out.println("Total window" +count3);
+     					
+     					for(String child:allWindows3)
+     					{
+     						if(!parentWindowHandle3.equalsIgnoreCase(child))
+     						{
+     							driver.switchTo().window(child);
+     							
+     							Thread.sleep(5000);
+     							driver.close();
+     						}
+     					}
+     					driver.switchTo().window(parentWindowHandle3);
+     					System.out.println("Parent window title is" +driver.getTitle());
+
     					
     					//CHAVARA
-//    					driver.findElement(By.xpath("//input[@type='radio' and @id='CHAVARA']")).click();
-//    					driver.findElement(By.xpath("//select[@id='partyContentTypeId']")).click();
+     					driver.findElement(By.xpath("//input[@id='CHAVARA']")).click();
+     					WebElement type4 = driver.findElement(By.xpath("//option[text()='Manuals']"));
+    					Thread.sleep(5000);
+    					type4.click();
     					
+    					//view button 
+    					String parentWindowHandle4 = driver.getWindowHandle();
+    					driver.findElement(By.xpath("(//a[text()='View'][1])")).click();
+    					
+    					driver.switchTo().window(parentWindowHandle4);
+     					Set<String> allWindows4=driver.getWindowHandles();
+     					int count4=allWindows.size();
+     					System.out.println("Total window" +count4);
+     					
+     					for(String child:allWindows4)
+     					{
+     						if(!parentWindowHandle4.equalsIgnoreCase(child))
+     						{
+     							driver.switchTo().window(child);
+     							
+     							Thread.sleep(5000);
+     							driver.close();
+     						}
+     					}
+     					driver.switchTo().window(parentWindowHandle4);
+     					System.out.println("Parent window title is" +driver.getTitle());
+
     					//REEP
-//    					driver.findElement(By.xpath("//input[@type='radio' and @id='REEP']")).click();
-//    					driver.findElement(By.xpath("//select[@id='partyContentTypeId']")).click();
+    					driver.findElement(By.xpath("//input[@id='REEP']")).click();
+     					WebElement type5 = driver.findElement(By.xpath("//option[text()='Manuals']"));
+    					Thread.sleep(5000);
+    					type5.click();
+    					
+    					//view button 
+    					String parentWindowHandle5 = driver.getWindowHandle();
+    					driver.findElement(By.xpath("(//a[text()='View'][1])")).click();
+    					
+    					driver.switchTo().window(parentWindowHandle5);
+     					Set<String> allWindows5=driver.getWindowHandles();
+     					int count5=allWindows.size();
+     					System.out.println("Total window" +count5);
+     					
+     					for(String child:allWindows5)
+     					{
+     						if(!parentWindowHandle5.equalsIgnoreCase(child))
+     						{
+     							driver.switchTo().window(child);
+     							
+     							Thread.sleep(5000);
+     							driver.close();
+     						}
+     					}
+     					driver.switchTo().window(parentWindowHandle5);
+     					System.out.println("Parent window title is" +driver.getTitle());
     					
     					//Back button
     					driver.findElement(By.xpath("//a[text()='Go Back']")).click();
