@@ -12,13 +12,13 @@ public class SpecilizationBranch {
 
 	public static void main(String[] args) throws InterruptedException {
 		SpecilizationBranch login = new SpecilizationBranch();
-//		login.login();
-//		login.specilizationBranch();
-//		login.sbCreate();
-//		login.sbFill();
-//		login.sbError();
-//		login.showEntries();
-//		login.sbEdit();
+		login.login();
+		login.specilizationBranch();
+		login.sbCreate();
+		login.sbFill();
+		login.sbError();
+		login.showEntries();
+		login.sbEdit();
 		login.sbEdifield();
 
 	}
