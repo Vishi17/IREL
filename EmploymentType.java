@@ -69,7 +69,7 @@ public class EmploymentType {
 	  	driver.findElement(By.xpath("//a[text()='Logout']")).click();
 	  	driver.quit();
 	  } 
-	//testcase-salary component - create new-Yes- save-logout
+	//testcase-EmploymentType - create new-Yes- save-logout
 		public void etCreate() throws InterruptedException {
 			System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\chromedriver.exe");
 			WebDriver driver = new ChromeDriver(); 
@@ -109,7 +109,7 @@ public class EmploymentType {
 			driver.findElement(By.xpath("//a[text()='Logout']")).click();
 		    driver.quit();
 		}
-		//testcase-salary component - create new-Yes- save-logout
+		//testcase-EmploymentType - create new-Yes- save-logout
 				public void etFill() throws InterruptedException {
 					System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\chromedriver.exe");
 					WebDriver driver = new ChromeDriver(); 
@@ -174,7 +174,7 @@ public class EmploymentType {
 					driver.findElement(By.xpath("//a[text()='Logout']")).click();
 					driver.quit();
 				}
-				//testcase-salarycomponent - create new-Yes- save-logout
+				//testcase-EmploymentType - create new-Yes- save-logout
 				public void etError() throws InterruptedException {
 					System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\chromedriver.exe");
 					WebDriver driver = new ChromeDriver(); 
@@ -237,7 +237,7 @@ public class EmploymentType {
 					driver.findElement(By.xpath("//a[text()='Logout']")).click();
 				    driver.quit();
 				}
-				//testcase-Edit
+				//testcase-Edit 
 				public void etEdit() throws InterruptedException {
 					System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\chromedriver.exe");
 					WebDriver driver = new ChromeDriver(); 
@@ -249,7 +249,7 @@ public class EmploymentType {
 					driver.findElement(By.xpath("//input[@name='USERNAME']")).sendKeys("cmstest");
 					driver.findElement(By.xpath("//input[@name='PASSWORD']")).sendKeys("ofbiz321");
 					driver.findElement(By.xpath("//input[@type='submit']")).click(); 
-				    driver.findElement(By.xpath("//h2[text()='Human Resources']")).click();
+				        driver.findElement(By.xpath("//h2[text()='Human Resources']")).click();
 					driver.findElement(By.xpath("//a[contains(text(),'Master')]")).click();
 					driver.findElement(By.xpath("//a[contains(text(),'Employment Type')]")).click();
 					//edit button
@@ -260,7 +260,7 @@ public class EmploymentType {
 					driver.findElement(By.xpath("//a[text()='Logout']")).click();
 				    driver.quit();
 				}
-				// Edit field 
+				// Edit fields
 				public void etEdifield() throws InterruptedException {
 					System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\chromedriver.exe");
 					WebDriver driver = new ChromeDriver(); 
