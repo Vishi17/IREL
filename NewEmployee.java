@@ -1,29 +1,23 @@
 package employees;
 
 import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class NewEmployee {
-
 	public static void main(String[] args) throws InterruptedException {
 		NewEmployee login = new NewEmployee();
 //		login.irelLogin();
 //		login.masterdrop();
 //		login.employee();
 		login.employeeFill();
-		
-
 	}
 	//test case 1- login page
 	public void irelLogin() throws InterruptedException {
-	
 		System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver(); 
-		
 		driver.get("https://115.124.105.99:6443/humanres/control/main");
 		driver.findElement(By.xpath("//button[contains(text(),'Advanced')]")).click();
 		driver.findElement(By.xpath("//a[contains(text(),'Proceed to 115.124.105.99 (unsafe)')]")).click();
