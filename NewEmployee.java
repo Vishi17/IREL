@@ -1,23 +1,30 @@
 package employees;
 
 import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
 
 public class NewEmployee {
+
 	public static void main(String[] args) throws InterruptedException {
 		NewEmployee login = new NewEmployee();
 //		login.irelLogin();
 //		login.masterdrop();
 //		login.employee();
 		login.employeeFill();
+		
+
 	}
 	//test case 1- login page
 	public void irelLogin() throws InterruptedException {
+	
 		System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver(); 
+		
 		driver.get("https://115.124.105.99:6443/humanres/control/main");
 		driver.findElement(By.xpath("//button[contains(text(),'Advanced')]")).click();
 		driver.findElement(By.xpath("//a[contains(text(),'Proceed to 115.124.105.99 (unsafe)')]")).click();
@@ -113,19 +120,25 @@ public class NewEmployee {
 			WebElement et = driver.findElement(By.xpath("//option[text()='PERMANENT']"));
 			Thread.sleep(5000);
 			et.click();
-			WebElement doj= driver.findElement(By.xpath("//input[@name='dateOfJoining']"));
-			Thread.sleep(3000);
-			doj.sendKeys("07/13/2001");
-			WebElement dot= driver.findElement(By.xpath("//input[@name='dateOfJoiningAsTrainee']"));
-			Thread.sleep(3000);
-			dot.sendKeys("07/14/2001");
-			WebElement dojr= driver.findElement(By.xpath("//input[@name='dateOfJoiningOnRegular']"));
-			Thread.sleep(3000);
-			dojr.sendKeys("08/01/2001");
+//			WebElement doj= driver.findElement(By.xpath("//input[@name='dateOfJoining']"));
+//			Thread.sleep(3000);
+//			doj.sendKeys("07/13/2001");
+//			WebElement dot= driver.findElement(By.xpath("//input[@name='dateOfJoiningAsTrainee']"));
+//			Thread.sleep(3000);
+//			dot.sendKeys("07/14/2001");
+//			WebElement dojr= driver.findElement(By.xpath("//input[@name='dateOfJoiningOnRegular']"));
+//			Thread.sleep(3000);
+//			dojr.sendKeys("08/01/2001");
 			driver.findElement(By.xpath("//input[@name='placeOfJoining']")).sendKeys("Bangalore");
-			driver.findElement(By.xpath("//div[contains(text(),'Select some options')]")).click();
-			WebElement qualification = driver.findElement(By.xpath("//div[text()='screenlet_1_col']"));
-			qualification.click();
+			WebElement dropdown = driver.findElement(By.xpath("//*[@class='select2-selection__rendered']"));
+			dropdown.click();
+			WebElement drop1= driver.findElement(By.xpath("//input[@class='select2-search__field']"));
+			drop1.sendKeys("Chairman & Managing Director");
 			Thread.sleep(5000);
+			drop1.click();
+			//driver.findElement(By.xpath("//*[@class='select2-selection__arrow']")).click();
+			
+			
+			
 }
 }
