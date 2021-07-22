@@ -6,7 +6,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.Select;
 
 public class NewEmployee {
 
@@ -15,7 +14,7 @@ public class NewEmployee {
 //		login.irelLogin();
 //		login.masterdrop();
 //		login.employee();
-		login.employeeFill();
+//		login.employeeFill();
 		
 
 	}
@@ -105,7 +104,7 @@ public class NewEmployee {
 			driver.findElement(By.xpath("//input[@name='Religion']")).sendKeys("Hindu");
 			driver.findElement(By.xpath("//option[text()='OBC/ ESM ']")).click();
 			Thread.sleep(5000);
-//			driver.findElement(By.xpath("//option[text()='SC / ESM ']")).click();
+			driver.findElement(By.xpath("//option[text()='SC / ESM ']")).click();
 			WebElement dob= driver.findElement(By.xpath("//input[@name='birthDate']"));
 			Thread.sleep(3000);
 			dob.sendKeys("05/17/1993");
@@ -120,25 +119,99 @@ public class NewEmployee {
 			WebElement et = driver.findElement(By.xpath("//option[text()='PERMANENT']"));
 			Thread.sleep(5000);
 			et.click();
-//			WebElement doj= driver.findElement(By.xpath("//input[@name='dateOfJoining']"));
-//			Thread.sleep(3000);
-//			doj.sendKeys("07/13/2001");
-//			WebElement dot= driver.findElement(By.xpath("//input[@name='dateOfJoiningAsTrainee']"));
-//			Thread.sleep(3000);
-//			dot.sendKeys("07/14/2001");
-//			WebElement dojr= driver.findElement(By.xpath("//input[@name='dateOfJoiningOnRegular']"));
-//			Thread.sleep(3000);
-//			dojr.sendKeys("08/01/2001");
+			WebElement doj= driver.findElement(By.xpath("//input[@name='dateOfJoining']"));
+			Thread.sleep(3000);
+			doj.sendKeys("07/13/2001");
+			WebElement dot= driver.findElement(By.xpath("//input[@name='dateOfJoiningAsTrainee']"));
+			Thread.sleep(3000);
+			dot.sendKeys("07/14/2001");
+			WebElement dojr= driver.findElement(By.xpath("//input[@name='dateOfJoiningOnRegular']"));
+			Thread.sleep(3000);
+			dojr.sendKeys("08/01/2001");
 			driver.findElement(By.xpath("//input[@name='placeOfJoining']")).sendKeys("Bangalore");
-			WebElement dropdown = driver.findElement(By.xpath("//*[@class='select2-selection__rendered']"));
-			dropdown.click();
-			WebElement drop1= driver.findElement(By.xpath("//input[@class='select2-search__field']"));
-			drop1.sendKeys("Chairman & Managing Director");
+			
+			//grade
+			driver.findElement(By.id("select2-grade-container")).click();
+			WebElement grade = driver.findElement(By.xpath("//*[contains(text(),'Chairman & Managing Director')]"));
+			grade.click();
+			WebElement g = driver.findElement(By.xpath("//option[text()='Chairman & Managing Director']"));
+			g.click();
+			Thread.sleep(3000);
+			//designation dropdown
+		    WebElement designation = driver.findElement(By.xpath("//option[text()='CHAIRMAN & MANAGING DIRECTOR']"));
+			designation.click();
+			Thread.sleep(3000);
+			driver.findElement(By.xpath("//*[@class='select2-selection__arrow']")).click();
+			//Funational
+			 WebElement functional = driver.findElement(By.xpath("//option[text()='CMD']"));
+			 Thread.sleep(5000);
+			 functional.click();
+				
+			//display designation
+			driver.findElement(By.xpath("//input[@name='DisplayDesignation']")).sendKeys("tester");
+			
+			//Directorate department drop down
+			WebElement dirdepart = driver.findElement(By.xpath("//option[text()='HRM']"));
 			Thread.sleep(5000);
-			drop1.click();
-			//driver.findElement(By.xpath("//*[@class='select2-selection__arrow']")).click();
+			dirdepart.click();
+			//Parent department
+			 WebElement paretndepart = driver.findElement(By.xpath("//option[text()='']"));
+			 Thread.sleep(5000);
+			 paretndepart.click();
+     		//Sub departmetn 
+			 WebElement subdepart = driver.findElement(By.xpath("//option[text()='']"));
+			 Thread.sleep(5000);
+			 subdepart.click(); 
+
+			//reporting authority
+//			driver.findElement(By.name("supervisorId")).click();
+			WebElement reportdepart = driver.findElement(By.xpath("//option[text()='RAKESH SHARMA [10011] [OSCOM]']"));
+			Thread.sleep(5000);
+			reportdepart.click(); 
+			 Thread.sleep(5000);
+		    //reviewing officer
+			driver.findElement(By.xpath("//*[@id='select2-ReviewingAuthority-container']")).click();
+			WebElement reviewoff = driver.findElement(By.xpath("//option[text()='NEHA NIDHI[8801831][OSCOM]']"));
+			Thread.sleep(5000);
+			reviewoff.click();
+			//leave recommandation		
+			WebElement recom=driver.findElement(By.xpath("//input[@id='leaveRecommendingAuth']"));
+			recom.click();
+			WebElement leaverec = driver.findElement(By.xpath("//option[text()='JOHN SSANIL [10041] []']"));
+			Thread.sleep(5000);
+			leaverec.click();
+			//Leave sanctioning
+			driver.findElement(By.id("leaveSanctioningAuth")).click();
+            WebElement leavesan = driver.findElement(By.xpath("//option[text()='A RPATIL [10030] []']"));
+            Thread.sleep(5000);
+            leavesan.click();
 			
+			//Group
+			WebElement group = driver.findElement(By.xpath("//option[text()='A']"));
+			Thread.sleep(5000);
+			group.click();
 			
+			//Status
+			WebElement status = driver.findElement(By.xpath("//option[text()='Active']"));
+			Thread.sleep(5000);
+			status.click();
 			
+			//Status Effective Date *
+			WebElement effdate= driver.findElement(By.xpath("//input[@name='StatusEffectDate']"));
+			Thread.sleep(3000);
+			effdate.sendKeys("07/18/2021");
+			
+			//Previous Government Organization Joining Date
+			WebElement jdate= driver.findElement(By.xpath("//input[@name='PreGovJoiningDate']"));
+			Thread.sleep(3000);
+			jdate.sendKeys("07/15/2021");
+			
+			//Unit establishment
+			WebElement unit = driver.findElement(By.xpath("//option[text()='OSCOM MINERAL']"));
+			Thread.sleep(5000);
+			unit.click();
+			driver.findElement(By.xpath("//input[@type='submit']")).click();
+			driver.findElement(By.xpath("//a[text()='Logout']")).click();
+			driver.quit();
 }
 }
