@@ -25,6 +25,11 @@ public class BasicInformation {
 	    login.employeeEmHistory();	
 		login.employeeHEdit();
 		login.employeeHDelete();
+		login.employeeNomDetails();
+		login.employeeNEdit();
+		login.employeeNDelete();
+		login.employeeNAdd();
+
 
 	}
 	//test case - login page
@@ -422,6 +427,135 @@ public class BasicInformation {
 		        Thread.sleep(5000);		
 		        // Accepting alert		
 		        alert.dismiss();	
+		        driver.findElement(By.xpath("//a[contains(text(),'Go Back')]")).click();
+				driver.findElement(By.xpath("//a[text()='Logout']")).click();
+				driver.quit();
+}
+	//TESTCASE- LOGIN,HR,Employee- find employee- user - click - user page-Nom Details
+			public void employeeNomDetails() throws InterruptedException {
+				System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\chromedriver.exe");
+				WebDriver driver = new ChromeDriver(); 
+				driver.get("https://115.124.105.99:6443/humanres/control/main");
+				driver.findElement(By.xpath("//button[contains(text(),'Advanced')]")).click();
+				driver.findElement(By.xpath("//a[contains(text(),'Proceed to 115.124.105.99 (unsafe)')]")).click();
+				driver.findElement(By.xpath("//input[@name='USERNAME']")).sendKeys("cmstest");
+				driver.findElement(By.xpath("//input[@name='PASSWORD']")).sendKeys("ofbiz321");
+				driver.findElement(By.xpath("//input[@type='submit']")).click(); 
+			    driver.findElement(By.xpath("//h2[text()='Human Resources']")).click();
+			    driver.findElement(By.xpath("//a[contains(text(),'Employees')]")).click();
+			    driver.findElement(By.xpath("//input[@name='partyId']")).sendKeys("8800112");
+			    Thread.sleep(3000);
+			    driver.findElement(By.xpath("//input[@value='Look Up Employee']")).click();
+			    driver.findElement(By.xpath("//a[contains(text(),'8800112')]")).click();
+		        driver.findElement(By.xpath("//a[contains(text(),' Nominee(Heir) Details')]")).click();
+		        driver.findElement(By.xpath("//input[@name='nameOfHeirs']")).sendKeys("xyz");
+		        WebElement address= driver.findElement(By.xpath("//input[contains(text(),'address')]"));
+		        Thread.sleep(3000);
+		        address.sendKeys("abd");
+		        driver.findElement(By.xpath("//input[@name='contactNumber']")).sendKeys("0221-987656");
+		        WebElement pt= driver.findElement(By.xpath("//option[text()='BROSIS ']"));
+				Thread.sleep(3000);
+				pt.click();
+				driver.findElement(By.xpath("//input[@name='pf']")).sendKeys("12");
+				driver.findElement(By.xpath("//input[@name='pension']")).sendKeys("10");
+				driver.findElement(By.xpath("//input[@name='gratuity']")).sendKeys("2");
+//				driver.findElement(By.xpath("//input[@type='submit']")).click();
+				driver.findElement(By.xpath("//input[@type='reset']")).click();
+				driver.findElement(By.xpath("//a[contains(text(),'Go Back')]")).click();
+				driver.findElement(By.xpath("//a[text()='Logout']")).click();
+				driver.quit();
+}
+			//TESTCASE- LOGIN,HR,Employee- find employee- user - click - user page-Nom Details-Edit	
+			public void employeeNEdit() throws InterruptedException {
+				System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\chromedriver.exe");
+				WebDriver driver = new ChromeDriver(); 
+				driver.get("https://115.124.105.99:6443/humanres/control/main");
+				driver.findElement(By.xpath("//button[contains(text(),'Advanced')]")).click();
+				driver.findElement(By.xpath("//a[contains(text(),'Proceed to 115.124.105.99 (unsafe)')]")).click();
+				driver.findElement(By.xpath("//input[@name='USERNAME']")).sendKeys("cmstest");
+				driver.findElement(By.xpath("//input[@name='PASSWORD']")).sendKeys("ofbiz321");
+				driver.findElement(By.xpath("//input[@type='submit']")).click(); 
+			    driver.findElement(By.xpath("//h2[text()='Human Resources']")).click();
+			    driver.findElement(By.xpath("//a[contains(text(),'Employees')]")).click();
+			    driver.findElement(By.xpath("//input[@name='partyId']")).sendKeys("8800112");
+			    Thread.sleep(3000);
+			    driver.findElement(By.xpath("//input[@value='Look Up Employee']")).click();
+			    driver.findElement(By.xpath("//a[contains(text(),'8800112')]")).click();
+		        driver.findElement(By.xpath("//a[contains(text(),'Nominee(Heir) Details')]")).click();
+		        driver.findElement(By.xpath("//a[contains(text(),'Edit')]")).click();
+		        WebElement name = driver.findElement(By.xpath("//input[@name='nameOfHeirs']"));
+		        name.clear();
+		        name.sendKeys("umesh");
+		        //driver.findElement(By.xpath("//input[@name=' address']")).sendKeys("address1");
+		        driver.findElement(By.xpath("//input[@name='contactNumber']")).sendKeys("0221-987656");
+		        WebElement pt= driver.findElement(By.xpath("//option[text()='Arjun']"));
+				Thread.sleep(3000);
+				pt.click();
+				WebElement pf= driver.findElement(By.xpath("//input[@name='pf']"));
+				pf.clear();
+				pf.sendKeys("12");
+				WebElement eps=driver.findElement(By.xpath("//input[@name='pension']"));
+				eps.clear();
+				eps.sendKeys("10");
+				WebElement g= driver.findElement(By.xpath("//input[@name='gratuity']"));
+				g.clear();
+				g.sendKeys("2");
+				driver.findElement(By.xpath("//input[@type='reset']")).click();
+				driver.findElement(By.xpath("//input[@type='submit']")).click();
+				driver.findElement(By.xpath("//a[contains(text(),'Go Back')]")).click();
+				driver.findElement(By.xpath("//a[text()='Logout']")).click();
+				driver.quit();				
+}
+			//TESTCASE- LOGIN,HR,Employee- find employee- user - click - user page-Nomaniee-Delete
+			public void employeeNDelete() throws InterruptedException {
+				System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\chromedriver.exe");
+				WebDriver driver = new ChromeDriver(); 
+				driver.get("https://115.124.105.99:6443/humanres/control/main");
+				driver.findElement(By.xpath("//button[contains(text(),'Advanced')]")).click();
+				driver.findElement(By.xpath("//a[contains(text(),'Proceed to 115.124.105.99 (unsafe)')]")).click();
+				driver.findElement(By.xpath("//input[@name='USERNAME']")).sendKeys("cmstest");
+				driver.findElement(By.xpath("//input[@name='PASSWORD']")).sendKeys("ofbiz321");
+				driver.findElement(By.xpath("//input[@type='submit']")).click(); 
+			    driver.findElement(By.xpath("//h2[text()='Human Resources']")).click();
+			    driver.findElement(By.xpath("//a[contains(text(),'Employees')]")).click();
+			    driver.findElement(By.xpath("//input[@name='partyId']")).sendKeys("8800112");
+			    Thread.sleep(3000);
+			    driver.findElement(By.xpath("//input[@value='Look Up Employee']")).click();
+			    driver.findElement(By.xpath("//a[contains(text(),'8800112')]")).click();
+		        driver.findElement(By.xpath("//a[contains(text(),' Nominee(Heir) Details')]")).click();
+		        driver.findElement(By.xpath("(//a[text()='Delete'])")).click();
+		        // Switching to Alert        
+		        Alert alert = driver.switchTo().alert();		
+		        // Capturing alert message.    
+		        String alertMessage= driver.switchTo().alert().getText();				
+		        // Displaying alert message		
+		        System.out.println(alertMessage);	
+		        Thread.sleep(5000);		
+		        // Accepting alert		
+		        alert.dismiss();	
+		        driver.findElement(By.xpath("//a[contains(text(),'Go Back')]")).click();
+				driver.findElement(By.xpath("//a[text()='Logout']")).click();
+				driver.quit();
+}
+			//TESTCASE- LOGIN,HR,Employee- find employee- user - click - user page-Nomaniee-Addheirdetails
+			public void employeeNAdd() throws InterruptedException {
+				System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\chromedriver.exe");
+				WebDriver driver = new ChromeDriver(); 
+				driver.get("https://115.124.105.99:6443/humanres/control/main");
+				driver.findElement(By.xpath("//button[contains(text(),'Advanced')]")).click();
+				driver.findElement(By.xpath("//a[contains(text(),'Proceed to 115.124.105.99 (unsafe)')]")).click();
+				driver.findElement(By.xpath("//input[@name='USERNAME']")).sendKeys("cmstest");
+				driver.findElement(By.xpath("//input[@name='PASSWORD']")).sendKeys("ofbiz321");
+				driver.findElement(By.xpath("//input[@type='submit']")).click(); 
+			    driver.findElement(By.xpath("//h2[text()='Human Resources']")).click();
+			    driver.findElement(By.xpath("//a[contains(text(),'Employees')]")).click();
+			    driver.findElement(By.xpath("//input[@name='partyId']")).sendKeys("8800112");
+			    Thread.sleep(3000);
+			    driver.findElement(By.xpath("//input[@value='Look Up Employee']")).click();
+			    driver.findElement(By.xpath("//a[contains(text(),'8800112')]")).click();
+		        driver.findElement(By.xpath("//a[contains(text(),' Nominee(Heir) Details')]")).click();
+		        driver.findElement(By.xpath("//a[contains(text(),'Edit')]")).click();
+		        driver.findElement(By.xpath("//a[contains(text(),'Go Back')]")).click();
 		        driver.findElement(By.xpath("//a[contains(text(),'Go Back')]")).click();
 				driver.findElement(By.xpath("//a[text()='Logout']")).click();
 				driver.quit();
