@@ -13,11 +13,14 @@ import org.openqa.selenium.support.ui.Select;
 public class loanApp {
 	public static void main(String[] args) throws InterruptedException {
 		loanApp login = new loanApp();
-		login.loanAppCreate();
+		login.houseBuildAdv();
+		login.hirePurchaseAdv();
+		login.educationAdv();
+		login.festAdv();
 
 	}
-	//TESTCASE LOGIN,HR,MASTER,CATEGORY,GoBack,HR-MAIN, LOGOUT
-	public void loanAppCreate() throws InterruptedException {
+	//TESTCASE LOGIN,HR,Loan and Advance-hirePurchaseAdv
+	public void houseBuildAdv() throws InterruptedException {
 		System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver(); 
 		
@@ -162,5 +165,269 @@ public class loanApp {
 		driver.quit();
 	    
 	}
+	//TESTCASE LOGIN,HR,Loan and Advance-hirePurchaseAdv
+		public void hirePurchaseAdv() throws InterruptedException {
+		System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver(); 
+			
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver.get("https://115.124.105.99:6443/humanres/control/main");
+		driver.findElement(By.xpath("//button[contains(text(),'Advanced')]")).click();
+		driver.findElement(By.xpath("//a[contains(text(),'Proceed to 115.124.105.99 (unsafe)')]")).click();
+ //       driver.manage().window().maximize();
+		driver.findElement(By.xpath("//input[@name='USERNAME']")).sendKeys("cmstest");
+		driver.findElement(By.xpath("//input[@name='PASSWORD']")).sendKeys("ofbiz321");
+	    driver.findElement(By.xpath("//input[@type='submit']")).click(); 
+		driver.findElement(By.xpath("//h2[text()='Human Resources']")).click();
+		driver.findElement(By.xpath("//a[@href='/humanres/control/LoanAndAdvance']")).click();
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("//a[@href='https://115.124.105.99:6443/humanres/control/HirePurchaseAdvance']")).click();
+		driver.findElement(By.xpath("//a[contains(text(),'Create New')]")).click();
+		driver.findElement(By.xpath("//a[@id='myBtn']")).click();
+	    Thread.sleep(1000);
+	    driver.findElement(By.xpath("//span[@class='close']")).click();
+		driver.findElement(By.name("articleDescription")).sendKeys("description");
+		driver.findElement(By.xpath("//option[text()='4 Wheeler']")).click();
+		driver.findElement(By.id("reqAmount")).sendKeys("100000");
+		driver.findElement(By.className("numberOfMonthsToRefund")).sendKeys("4");
+		driver.findElement(By.id("nameOfShop")).sendKeys("supplier");
+		driver.findElement(By.id("billNo")).sendKeys("12345");
+		driver.findElement(By.id("remarks")).sendKeys("check");
+		driver.findElement(By.xpath("//option[text()='Secured']")).click();
+		WebElement copy = driver.findElement(By.xpath("//input[@type= 'file' and @name='HireReceipt']"));
+		copy.sendKeys("C:\\Users\\VISHAKHA SINGH\\Desktop\\Course\\Effective Comm-1.png");
+		driver.findElement(By.xpath("//button[@value='Add Row']")).click();
+	    driver.findElement(By.xpath("//button[@value='Delete Row']")).click();
+		driver.findElement(By.xpath("//input[@name='agreeAndAccept']")).click();
+		driver.findElement(By.xpath("//input[@type='submit']")).click();
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("//a[contains(text(),'Edit')]")).click();
+		WebElement landdoc1 = driver.findElement(By.xpath("//a[text()='View']"));
+		String parentWindowHandle = driver.getWindowHandle();
+		landdoc1.click();
+		driver.switchTo().window(parentWindowHandle);
+		Set<String> allWindows=driver.getWindowHandles();
+		int count=allWindows.size();
+		System.out.println("Total window" +count);
+		
+		for(String child:allWindows)
+		{
+			if(!parentWindowHandle.equalsIgnoreCase(child))
+			{
+				driver.switchTo().window(child);
+				
+				Thread.sleep(5000);
+				driver.close();
+			}
+		}
+		driver.switchTo().window(parentWindowHandle);
+		System.out.println("Parent window title is" +driver.getTitle());
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("//a[text()='Remove']")).click();
+	    // Switching to Alert        
+        Alert alert = driver.switchTo().alert();		
+        // Capturing alert message.    
+        String alertMessage= driver.switchTo().alert().getText();				
+        // Displaying alert message		
+        System.out.println(alertMessage);	
+        Thread.sleep(3000);		
+        // Accepting alert		
+        alert.accept();
+//        Thread.sleep(7000);
+        driver.navigate().refresh();
+        WebElement copy1 = driver.findElement(By.xpath("//input[@type= 'file' and @name='Receiptcopy']"));
+		copy1.sendKeys("C:\\Users\\VISHAKHA SINGH\\Desktop\\Course\\Effective Comm-1.png");
+	    driver.findElement(By.xpath("//input[@value='Update']")).click();
+	    driver.findElement(By.xpath("//a[contains(text(),'Edit')]")).click();
+	    driver.findElement(By.xpath("//input[@value='Submit']")).click();
+	    driver.findElement(By.xpath("//input[@id='jGrowl']")).click();
+//	    driver.findElement(By.xpath("//input[@value='Cancel']")).click();
+//	    driver.findElement(By.xpath("//input[@value='Print']")).click();
+	    driver.findElement(By.xpath("//a[text()='Delete']")).click();
+	 // Switching to Alert        
+        Alert delete = driver.switchTo().alert();		
+        // Capturing alert message.    
+        String deleteMessage= driver.switchTo().alert().getText();				
+        // Displaying alert message		
+        System.out.println(deleteMessage);	
+        Thread.sleep(3000);		
+        // Accepting alert		
+        delete.accept();
+        driver.findElement(By.xpath("//a[text()='Logout']")).click();
+		driver.quit();    
+	}		
+		//TESTCASE LOGIN,HR,Loan and Advance-hirePurchaseAdv
+		public void educationAdv() throws InterruptedException {
+		System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver(); 
+			
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver.get("https://115.124.105.99:6443/humanres/control/main");
+		driver.findElement(By.xpath("//button[contains(text(),'Advanced')]")).click();
+		driver.findElement(By.xpath("//a[contains(text(),'Proceed to 115.124.105.99 (unsafe)')]")).click();
+ //       driver.manage().window().maximize();
+		driver.findElement(By.xpath("//input[@name='USERNAME']")).sendKeys("cmstest");
+		driver.findElement(By.xpath("//input[@name='PASSWORD']")).sendKeys("ofbiz321");
+	    driver.findElement(By.xpath("//input[@type='submit']")).click(); 
+		driver.findElement(By.xpath("//h2[text()='Human Resources']")).click();
+		driver.findElement(By.xpath("//a[@href='/humanres/control/LoanAndAdvance']")).click();
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("//a[@href='https://115.124.105.99:6443/humanres/control/EducationalAdvanceApplyNew']")).click();
+		driver.findElement(By.xpath("//a[contains(text(),'Create New')]")).click();
+		driver.findElement(By.xpath("//a[@id='myBtn']")).click();
+	    Thread.sleep(1000);
+	    driver.findElement(By.xpath("//span[@class='close']")).click();
+	    driver.findElement(By.xpath("//input[@id='reqAmount']")).sendKeys("100000");
+		driver.findElement(By.xpath("//input[@name='numberOfMonthsToRefund']")).sendKeys("10");
+		driver.findElement(By.xpath("//input[@id='Remarks']")).sendKeys("educationloan");
+		driver.findElement(By.xpath("//button[@value='Add Row']")).click();
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("//button[@value='Delete Row']")).click();
+	    WebElement eduloan = driver.findElement(By.xpath("//input[@type= 'file' and @name='EducateReceipt']"));
+		eduloan.sendKeys("C:\\Users\\VISHAKHA SINGH\\Desktop\\Course\\Effective Comm-1.png");
+		driver.findElement(By.xpath("//input[@name='agreeAndAccept']")).click();
+		driver.findElement(By.xpath("//input[@type='submit']")).click();
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("//a[contains(text(),'Edit')]")).click();
+		WebElement edu1 = driver.findElement(By.xpath("//a[text()='View']"));
+		String parentWindowHandle = driver.getWindowHandle();
+		edu1.click();
+		driver.switchTo().window(parentWindowHandle);
+		Set<String> allWindows=driver.getWindowHandles();
+		int count=allWindows.size();
+		System.out.println("Total window" +count);
+		
+		for(String child:allWindows)
+		{
+			if(!parentWindowHandle.equalsIgnoreCase(child))
+			{
+				driver.switchTo().window(child);
+				
+				Thread.sleep(5000);
+				driver.close();
+			}
+		}
+		driver.switchTo().window(parentWindowHandle);
+		System.out.println("Parent window title is" +driver.getTitle());
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("//a[text()='Remove']")).click();
+	    // Switching to Alert        
+        Alert alert = driver.switchTo().alert();		
+        // Capturing alert message.    
+        String alertMessage= driver.switchTo().alert().getText();				
+        // Displaying alert message		
+        System.out.println(alertMessage);	
+        Thread.sleep(3000);		
+        // Accepting alert		
+        alert.accept();
+//        Thread.sleep(7000);
+        driver.navigate().refresh();
+        WebElement eduloan1 = driver.findElement(By.xpath("//input[@type= 'file' and @name='EducateReceipt']"));
+		eduloan1.sendKeys("C:\\Users\\VISHAKHA SINGH\\Desktop\\Course\\Effective Comm-1.png");
+		driver.findElement(By.xpath("//a[contains(text(),'Edit')]")).click();
+	    driver.findElement(By.xpath("//input[@value='Submit']")).click();
+	    driver.findElement(By.xpath("//input[@id='jGrowl']")).click();
+//	    driver.findElement(By.xpath("//input[@value='Cancel']")).click();
+//	    driver.findElement(By.xpath("//input[@value='Print']")).click();
+	    driver.findElement(By.xpath("//a[text()='Delete']")).click();
+	 // Switching to Alert        
+        Alert delete = driver.switchTo().alert();		
+        // Capturing alert message.    
+        String deleteMessage= driver.switchTo().alert().getText();				
+        // Displaying alert message		
+        System.out.println(deleteMessage);	
+        Thread.sleep(3000);		
+        // Accepting alert		
+        delete.accept();
+        driver.findElement(By.xpath("//a[text()='Logout']")).click();
+		driver.quit();    
+		}
+		//TESTCASE LOGIN,HR,Loan and Advance-hirePurchaseAdv
+				public void festAdv() throws InterruptedException {
+					System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\chromedriver.exe");
+					WebDriver driver = new ChromeDriver(); 
+						
+					driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+					driver.get("https://115.124.105.99:6443/humanres/control/main");
+					driver.findElement(By.xpath("//button[contains(text(),'Advanced')]")).click();
+					driver.findElement(By.xpath("//a[contains(text(),'Proceed to 115.124.105.99 (unsafe)')]")).click();
+//					       driver.manage().window().maximize();
+					driver.findElement(By.xpath("//input[@name='USERNAME']")).sendKeys("cmstest");
+					driver.findElement(By.xpath("//input[@name='PASSWORD']")).sendKeys("ofbiz321");
+					driver.findElement(By.xpath("//input[@type='submit']")).click(); 
+					driver.findElement(By.xpath("//h2[text()='Human Resources']")).click();
+					driver.findElement(By.xpath("//a[@href='/humanres/control/LoanAndAdvance']")).click();
+					Thread.sleep(3000);
+					driver.findElement(By.xpath("//a[@href='https://115.124.105.99:6443/humanres/control/FestivalAdvanceApplyNew']")).click();
+					driver.findElement(By.xpath("//a[contains(text(),'Create New')]")).click();
+					driver.findElement(By.xpath("//a[@id='myBtn']")).click();
+					Thread.sleep(1000);
+					driver.findElement(By.xpath("//span[@class='close']")).click();
+					driver.findElement(By.xpath("//input[@id='FestivalDate']")).sendKeys("08/02/2021");
+					driver.findElement(By.xpath("//input[@name='reqAmount']")).sendKeys("1000");
+					driver.findElement(By.xpath("//input[@name='numberOfMonthsToRefund']")).sendKeys("5");
+					driver.findElement(By.xpath("//input[@id='Remarks']")).sendKeys("festiveloan");
+					driver.findElement(By.xpath("//input[@name='NameOfFestival']")).sendKeys("diwali");
+					driver.findElement(By.xpath("//button[@value='Add Row']")).click();
+					Thread.sleep(3000);
+					driver.findElement(By.xpath("//button[@value='Delete Row']")).click();
+					WebElement festloan = driver.findElement(By.xpath("//input[@type= 'file' and @name='Receiptcopy']"));
+					festloan.sendKeys("C:\\Users\\VISHAKHA SINGH\\Desktop\\Course\\Effective Comm-1.png");
+					driver.findElement(By.xpath("//input[@name='agreeAndAccept']")).click();
+					driver.findElement(By.xpath("//input[@type='submit']")).click();
+					Thread.sleep(3000);
+					driver.findElement(By.xpath("//a[contains(text(),'Edit')]")).click();
+					WebElement edu1 = driver.findElement(By.xpath("//a[text()='View']"));
+					String parentWindowHandle = driver.getWindowHandle();
+					edu1.click();
+					driver.switchTo().window(parentWindowHandle);
+					Set<String> allWindows=driver.getWindowHandles();
+					int count=allWindows.size();
+					System.out.println("Total window" +count);
 
-}
+					for(String child:allWindows)
+					{
+						if(!parentWindowHandle.equalsIgnoreCase(child))
+						{
+							driver.switchTo().window(child);
+							
+							Thread.sleep(5000);
+							driver.close();
+						}
+					}
+					driver.switchTo().window(parentWindowHandle);
+					System.out.println("Parent window title is" +driver.getTitle());
+					Thread.sleep(3000);
+					driver.findElement(By.xpath("//a[text()='Remove']")).click();
+					// Switching to Alert        
+					Alert alert = driver.switchTo().alert();		
+					// Capturing alert message.    
+					String alertMessage= driver.switchTo().alert().getText();				
+					// Displaying alert message		
+					System.out.println(alertMessage);	
+					Thread.sleep(3000);		
+					// Accepting alert		
+					alert.accept();
+					//Thread.sleep(7000);
+					driver.navigate().refresh();
+					WebElement festloan1 = driver.findElement(By.xpath("//input[@type= 'file' and @name='Receiptcopy']"));
+					festloan1.sendKeys("C:\\Users\\VISHAKHA SINGH\\Desktop\\Course\\Effective Comm-1.png");
+					driver.findElement(By.xpath("//a[contains(text(),'Edit')]")).click();
+					driver.findElement(By.xpath("//input[@value='Submit']")).click();
+					driver.findElement(By.xpath("//input[@id='jGrowl']")).click();
+					//driver.findElement(By.xpath("//input[@value='Cancel']")).click();
+					//driver.findElement(By.xpath("//input[@value='Print']")).click();
+					driver.findElement(By.xpath("//a[text()='Delete']")).click();
+					// Switching to Alert        
+					Alert delete = driver.switchTo().alert();		
+					// Capturing alert message.    
+					String deleteMessage= driver.switchTo().alert().getText();				
+					// Displaying alert message		
+					System.out.println(deleteMessage);	
+					Thread.sleep(3000);		
+					// Accepting alert		
+					delete.accept();
+					driver.findElement(By.xpath("//a[text()='Logout']")).click();
+					driver.quit();    
+					}
+		}
